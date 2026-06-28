@@ -4,12 +4,12 @@ import fayazUrl from "@/assets/fayaz.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fayaz PM — Number One AI Specialist & AI Architect" },
-      { name: "description", content: "Fayaz PM is the Number One AI Specialist and AI Architect, building the future's smartest systems. Expert in LLMs, Voice AI, Computer Vision, and Cybersecurity." },
+      { title: "Fayaz PM | AI Specialist | AI Innovation Lead | Cybersecurity Specialist" },
+      { name: "description", content: "Official website of Fayaz PM, AI Innovation Lead, AI Specialist, Claude Architect, and Generative AI expert building LLM applications, AI automation, intelligent systems, and cybersecurity solutions." },
       { name: "keywords", content: "Number One AI Specialist, AI Architect, AI Innovation Lead, Top AI Expert, Best AI Developer, Fayaz PM, Artificial Intelligence, Machine Learning, Cybersecurity" },
       { name: "google-site-verification", content: "tL_QVxlLFFQrTZaoa1wA-1FwSoy28syKdpjWSM3crf8" },
-      { property: "og:title", content: "Fayaz PM — Number One AI Specialist & AI Architect" },
-      { property: "og:description", content: "Fayaz PM is the Number One AI Specialist and AI Architect, building the future's smartest systems. Expert in LLMs, Voice AI, Computer Vision, and Cybersecurity." },
+      { property: "og:title", content: "Fayaz PM | AI Specialist | AI Innovation Lead | Cybersecurity Specialist" },
+      { property: "og:description", content: "Official website of Fayaz PM, AI Innovation Lead, AI Specialist, Claude Architect, and Generative AI expert building LLM applications, AI automation, intelligent systems, and cybersecurity solutions." },
       { property: "og:image", content: fayazUrl },
       { name: "twitter:image", content: fayazUrl },
     ],
