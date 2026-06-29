@@ -149,6 +149,149 @@ const certs = [
   { name: "E-Commerce Level 1.1", org: "Flipkart", year: "2023" },
 ];
 
+const expertiseData = [
+  {
+    category: "Computer Vision",
+    icon: "🤖",
+    items: [
+      "YOLOv2 – Object Detection",
+      "Custom Object Detection Pipeline",
+      "Image processing models for document analysis"
+    ]
+  },
+  {
+    category: "Large Language Models (LLMs)",
+    icon: "🧠",
+    items: [
+      "Google Gemini API",
+      "Vulnerability Assessment (VAPT/AVAPT)",
+      "SOC Incident Analysis",
+      "Risk Scoring",
+      "Log Parsing",
+      "Report Generation",
+      "Remediation Recommendations",
+      "Prompt-engineered AI assistants for cybersecurity"
+    ]
+  },
+  {
+    category: "Document AI",
+    icon: "📄",
+    items: [
+      "DOCX Analysis Model",
+      "PDF Processing Pipeline",
+      "OCR-assisted document extraction",
+      "AI-powered report understanding",
+      "Automatic image extraction from reports"
+    ]
+  },
+  {
+    category: "Speech AI",
+    icon: "🎙️",
+    items: [
+      "Speech Recognition",
+      "Speech-to-Text (STT)",
+      "Text-to-Speech (TTS)",
+      "Voice Command Classification",
+      "Wake-word based assistant (Jarvis/EVA)"
+    ]
+  },
+  {
+    category: "Cybersecurity AI",
+    icon: "🔐",
+    items: [
+      "AI Vulnerability Assessment",
+      "AI Pentest Report Analyzer",
+      "AI Risk Prioritization",
+      "AI SOC Dashboard",
+      "Threat Intelligence Enrichment",
+      "Automated Incident Response",
+      "Log Classification",
+      "Attack Pattern Detection",
+      "MITRE ATT&CK Mapping",
+      "Red Team Activity Detection",
+      "AI Checklist Verification for Pentesters"
+    ]
+  },
+  {
+    category: "NLP Models",
+    icon: "📊",
+    items: [
+      "Named Entity Recognition (PII Detection)",
+      "Text Classification",
+      "Information Extraction",
+      "Report Summarization",
+      "Question Answering",
+      "Recommendation Generation"
+    ]
+  },
+  {
+    category: "Prediction / Analytics",
+    icon: "📈",
+    items: [
+      "Property Valuation AI",
+      "Rental Price Prediction",
+      "Market Trend Analysis",
+      "Appreciation Prediction",
+      "Risk Prediction"
+    ]
+  },
+  {
+    category: "Mapping & Location AI",
+    icon: "🌍",
+    items: [
+      "Google Maps Location Processing",
+      "Geolocation Analysis",
+      "Map-based Property Search"
+    ]
+  },
+  {
+    category: "Real Estate AI",
+    icon: "🏠",
+    items: [
+      "Smart Property Search",
+      "AI Property Recommendation",
+      "AI Valuation Engine",
+      "Rent Yield Estimation"
+    ]
+  },
+  {
+    category: "Assistive AI",
+    icon: "🦾",
+    items: [
+      "Voice-controlled Disability Assistant",
+      "Helping Mode",
+      "Smart Object Detection",
+      "Emergency Alert System",
+      "SMS Notification Integration"
+    ]
+  },
+  {
+    category: "AI Agents",
+    icon: "🛠️",
+    items: [
+      "E Voice Assistant",
+      "Jarvis-like Desktop Assistant",
+      "Help Desk Robo",
+      "AI Phone Assistant"
+    ]
+  },
+  {
+    category: "Models & Libraries Used",
+    icon: "📚",
+    items: [
+      "YOLOv2",
+      "Google Gemini API",
+      "Browser Speech Recognition API",
+      "Text-to-Speech Engines",
+      "OCR libraries",
+      "OpenCV",
+      "Twilio API",
+      "Flask (deployment)",
+      "JavaScript Speech APIs"
+    ]
+  }
+];
+
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground bg-hero">
@@ -157,6 +300,7 @@ function Portfolio() {
       <Marquee />
       <About />
       <Experience />
+      <Expertise />
       <Projects />
       <Testimonials />
       <Certs />
@@ -177,6 +321,7 @@ function Nav() {
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#about" className="hover:text-foreground transition">About</a>
           <a href="#work" className="hover:text-foreground transition">Work</a>
+          <a href="#expertise" className="hover:text-foreground transition">Expertise</a>
           <a href="#projects" className="hover:text-foreground transition">Projects</a>
           <a href="#press" className="hover:text-foreground transition">Press</a>
           <a href="#certs" className="hover:text-foreground transition">Certs</a>
@@ -319,10 +464,36 @@ function Experience() {
   );
 }
 
+function Expertise() {
+  return (
+    <section id="expertise" className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <SectionHeader kicker="03 — EXPERTISE & TECHNOLOGIES" title="AI/ML models and technologies I've trained and integrated." />
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {expertiseData.map((category) => (
+          <div key={category.category} className="rounded-xl border border-border bg-surface/40 p-6 hover:border-primary transition-colors flex flex-col">
+            <div className="flex items-center gap-3 mb-5 border-b border-border/50 pb-4">
+              <span className="text-3xl filter drop-shadow-sm">{category.icon}</span>
+              <h3 className="text-base font-semibold leading-tight">{category.category}</h3>
+            </div>
+            <ul className="space-y-3 text-sm text-muted-foreground flex-1">
+              {category.items.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="text-primary mt-0.5 text-xs">▹</span>
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Projects() {
   return (
     <section id="projects" className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeader kicker="03 — PROJECTS" title="Things I've built. Most live, some experimental." />
+      <SectionHeader kicker="04 — PROJECTS" title="Things I've built. Most live, some experimental." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((p) => (
           <article key={p.name} className="group relative rounded-xl border border-border bg-surface/60 p-6 hover:border-primary hover:-translate-y-1 transition-all duration-300">
@@ -347,7 +518,7 @@ function Projects() {
 function Testimonials() {
   return (
     <section id="press" className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeader kicker="04 — PRESS & TESTIMONIALS" title="What media and the community say." />
+      <SectionHeader kicker="05 — PRESS & TESTIMONIALS" title="What media and the community say." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {testimonials.map((t) => {
           const href =
@@ -404,7 +575,7 @@ function Testimonials() {
 function Certs() {
   return (
     <section id="certs" className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeader kicker="05 — CERTIFICATIONS" title="Continually learning, formally and otherwise." />
+      <SectionHeader kicker="06 — CERTIFICATIONS" title="Continually learning, formally and otherwise." />
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
         {certs.map((c) => (
           <div key={c.name} className="rounded-lg border border-border p-5 bg-surface/40 hover:bg-surface transition">
@@ -438,7 +609,7 @@ function Contact() {
         <div className="absolute -top-20 -right-20 size-80 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-20 -left-20 size-80 rounded-full bg-accent/15 blur-3xl" />
         <div className="relative">
-          <div className="font-mono text-xs text-primary mb-4">06 — CONTACT</div>
+          <div className="font-mono text-xs text-primary mb-4">07 — CONTACT</div>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-3xl text-balance">
             Got an AI or security problem worth solving? <span className="text-gradient">Let's talk.</span>
           </h2>
