@@ -15,6 +15,23 @@ export const Route = createFileRoute("/ai-specialist")({
 });
 
 function AISpecialistLandingPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const website = formData.get("website") as string;
+    const location = formData.get("location") as string;
+    const phone = formData.get("phone") as string;
+    const service = formData.get("service") as string;
+    const message = formData.get("message") as string;
+    
+    const subject = encodeURIComponent(`New AI Consultation Request from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nWebsite: ${website || "N/A"}\nLocation: ${location || "N/A"}\nService Requested: ${service || "N/A"}\n\nMessage:\n${message}`);
+
+    window.location.href = `mailto:fayazpm4v@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground bg-hero font-sans selection:bg-primary/30">
       {/* Navigation (Simplified for landing page) */}
@@ -51,7 +68,7 @@ function AISpecialistLandingPage() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10">
             Fayaz PM is Kerala's most trusted AI expert with 5+ years of proven results. 
             Using cutting-edge AI tools, LLMs, and battle-tested architecture, he's built 
-            intelligent, automated systems for clients in Dubai, Saudi Arabia, Germany, and across India.
+            intelligent, automated systems for clients in Dubai, Qatar, UK, and across India.
           </p>
 
           {/* CTA Buttons */}
@@ -73,12 +90,13 @@ function AISpecialistLandingPage() {
               Get Your Free AI Consultation
             </h2>
             
-            <form id="consultation-form" className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your interest! I will get back to you within 24 hours."); }}>
+            <form id="consultation-form" className="space-y-6" onSubmit={handleSubmit}>
               {/* Row 1 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <input 
                     type="text" 
+                    name="name"
                     placeholder="Your Name" 
                     required
                     className="w-full border-b border-border pb-2 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
@@ -87,6 +105,7 @@ function AISpecialistLandingPage() {
                 <div>
                   <input 
                     type="email" 
+                    name="email"
                     placeholder="Your Email" 
                     required
                     className="w-full border-b border-border pb-2 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
@@ -99,6 +118,7 @@ function AISpecialistLandingPage() {
                 <div>
                   <input 
                     type="text" 
+                    name="website"
                     placeholder="Website (Optional)" 
                     className="w-full border-b border-border pb-2 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                   />
@@ -106,6 +126,7 @@ function AISpecialistLandingPage() {
                 <div>
                   <input 
                     type="text" 
+                    name="location"
                     placeholder="Location" 
                     className="w-full border-b border-border pb-2 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                   />
@@ -117,12 +138,13 @@ function AISpecialistLandingPage() {
                 <div>
                   <input 
                     type="tel" 
+                    name="phone"
                     placeholder="Your Mobile Number" 
                     className="w-full border-b border-border pb-2 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
-                  <select defaultValue="" className="w-full border-b border-border pb-2 bg-transparent text-sm text-muted-foreground focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
+                  <select name="service" defaultValue="" className="w-full border-b border-border pb-2 bg-transparent text-sm text-muted-foreground focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
                     <option value="" disabled>Select Service</option>
                     <option value="llm">LLM Application Development</option>
                     <option value="automation">AI Automation</option>
@@ -150,6 +172,7 @@ function AISpecialistLandingPage() {
               {/* Message */}
               <div>
                 <textarea 
+                  name="message"
                   placeholder="Type Message Here" 
                   rows={4}
                   className="w-full bg-surface border border-border rounded-md p-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition-shadow resize-none"
